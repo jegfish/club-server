@@ -1,0 +1,15 @@
+- name: Add users
+  block:
+    - ansible.builtin.user:
+        name: "{{ item.name }}"
+        state: present
+        # "Locks" this account's password. Any password entered will be
+        # considered incorrect. User cannot change their password (we may want
+        # to allow this later). User will be able to login via SSH key.
+        password: '!'
+        shell: "{{ default_shell }}"
+      loop: "{{ user_list }}"
+    - ansible.posix.authorized_key:
+        user: "{{ item.name }}"
+        key: "{{ item.pubkey }}"
+      loop: "{{ user_list }}"

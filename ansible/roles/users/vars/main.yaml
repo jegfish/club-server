@@ -1,0 +1,3 @@
+default_shell: '/bin/bash'
+user_list:
+  - { name: 'jegfish', pubkey: 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH8BDSmV2cKOBjiEDvYCNBkhjmPfCi0o5JZkk3UIbI/2' }

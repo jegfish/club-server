@@ -1,0 +1,6 @@
+---
+- name: Include roles
+  hosts: all
+  roles:
+    - role: packages
+    - role: users
